@@ -1,57 +1,39 @@
 # 🎙️ Speech Emotion Recognition with Autoencoders
 
-This project implements a **deep learning pipeline** for **Speech Emotion Recognition (SER)** and **Emotion Intensity Estimation** using **autoencoder-based latent audio features**. The system leverages **MFCCs** for feature extraction and employs a **multi-task learning framework** to perform both **emotion classification** and **intensity prediction** simultaneously.
-
----
-
-## 🚀 Features
-- Extracts **Mel-Frequency Cepstral Coefficients (MFCCs)** from speech  
-- Uses a **fully connected autoencoder** for feature compression  
-- Dual-branch network:  
-  - **Classification Module** → Predicts categorical emotions (8 classes)  
-  - **Regression Module** → Estimates emotional intensity on a continuous scale  
-- **Multi-task learning** for better generalization  
-- Achieves:  
-  - **92.36% classification accuracy**  
-  - **0.1523 Mean Absolute Error (MAE)** for intensity prediction  
+This project focuses on **Speech Emotion Recognition (SER)** and **Emotion Intensity Estimation** using a **deep learning pipeline**. The system extracts **MFCC features** from speech, compresses them using an **autoencoder**, and applies a **multi-task learning framework** with two branches:  
+- **Emotion Classification** (8 categories)  
+- **Intensity Prediction** (continuous scale)  
 
 ---
 
 ## 📂 Dataset
-- **RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song)**  
-- **1,440 audio samples** across **8 emotions**:  
-  - Neutral, Calm, Happy, Sad, Angry, Fearful, Disgust, Surprised  
-- Each emotion expressed at **2 intensity levels** (normal & high)  
+- **Source**: RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song)  
+- **Samples**: 1,440 audio recordings  
+- **Emotions**: Neutral, Calm, Happy, Sad, Angry, Fearful, Disgust, Surprised  
+- **Intensity**: Normal & High  
 
 ---
 
-## 🛠️ Methodology
-1. **Preprocessing** → Convert raw audio → MFCC features (using *Librosa*)  
-2. **Autoencoder** → Learn compact latent features from MFCCs  
-3. **Classification Head** → Softmax layer for 8-class emotion recognition  
-4. **Regression Head** → MLP/LSTM for intensity prediction  
-5. **Multi-task Training** → Joint optimization of classification (cross-entropy) & regression (MSE) losses  
+## 🤖 Algorithms / Models Used
+- Autoencoder (feature compression)  
+- Classification Head (Softmax for categorical prediction)  
+- Regression Head (MLP/LSTM for intensity prediction)  
+- Multi-task learning framework  
 
 ---
 
-## 📊 Results
+## 📊 Evaluation Metrics
+- **Accuracy**  
+- **Mean Absolute Error (MAE)**  
+- **Mean Squared Error (MSE)**  
+- **F1-Score (per emotion)**  
 
-### Overall Performance
-| Metric | Value |
-|--------|-------|
-| Accuracy | **92.36%** |
-| MAE | **0.1523** |
-| MSE | **0.0380** |
+---
 
-### Emotion-wise F1-Scores
-- Angry: **0.95**  
-- Disgust: **0.96**  
-- Fearful: **0.96**  
-- Happy: **0.93**  
-- Neutral: **0.93**  
-- Sad: **0.88**  
-- Calm: **0.90**  
-- Surprised: **0.89**  
+## 🏆 Key Results
+- **92.36% classification accuracy**  
+- **MAE: 0.1523** for intensity prediction  
+- High F1-scores for most emotions (≥0.90)  
 
 ---
 
